@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Camino del Norte 2025</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f0f8ff; }
+    #countdown { font-size: 2em; margin-top: 20px; margin-bottom: 30px; color: #2c3e50; }
+    img { max-width: 80%; height: auto; border-radius: 10px; margin-top: 20px; }
+    h1 { color: #34495e; }
+    p { font-size: 1.2em; color: #7f8c8d; }
+  </style>
+</head>
+<body>
+  <h1>Camino del Norte 2025</h1>
+  <p>Do wydarzenia pozostało:</p>
+  <div id="countdown"></div>
+
+  <!-- Tutaj można wstawić zdjęcie -->
+  <img src="https://via.placeholder.com/600x400?text=Zdjecie+do+wstawienia" alt="Zdjecie wydarzenia">
+
+  <script>
+    const eventDate = new Date('2025-09-26T00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdown').innerHTML = 'Wydarzenie już trwa!';
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').innerHTML =
+        days + " dni " + hours + " godz. " + minutes + " min " + seconds + " sek";
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
