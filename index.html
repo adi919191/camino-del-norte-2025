@@ -13,7 +13,8 @@
 </head>
 <body>
   <h1>Camino del Norte 2025</h1>
-  <p>Comienza en:</p>
+  <h2>Marek y Adu</h2>
+  <h2>Comienza en:</h2>
   <div id="countdown"></div>
 
   <img src="image.jpg" alt="Camino del Norte 2025">
@@ -26,7 +27,7 @@
       const distance = eventDate - now;
 
       if (distance < 0) {
-        document.getElementById('countdown').innerHTML = 'Wydarzenie już trwa!';
+        document.getElementById('countdown').innerHTML = 'Comenzó!';
         clearInterval(interval);
         return;
       }
